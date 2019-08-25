@@ -15,12 +15,9 @@
 #           |       Name: Name Item
 #           |       Lore: Lore Item
 #           |   Enchantments:
-#           |       Id: ID enchantment or Name enchantment
+#           |       Id: ID enchantment
 #           |       Level: Level Enchantment
-#           |       Id:
-#           |       Level
-#           |       ...
-#           |   Content: Content CuaHang
+#           |   Content: Content Trade
 "1":
   Button: "Example Trade 1"
   support:
@@ -31,11 +28,15 @@
     point: 0 
   New-Item:
     Id: "278:0:1"
-    Name: "hihihi"
-    Lore: "hihihi"
+    Name: "Diamond Pickaxe-I"
+    Lore: "Cúp test \n Test xuống dòng \n LOL"
   Enchantments:
-    Id: 17
-    Level: 2
+    1:
+        Id: "efficiency"
+        Level: 10
+    2:
+        Id: "haste"
+        Level: 5
   Content: " Diamond Pickaxe-I : 10000$"
 "2":
   Button: "Example Trade 2"
@@ -50,6 +51,7 @@
     Name: "hihihi"
     Lore: "hihihi"
   Enchantments:
-    Id: 17
-    Level: 2
+    1:
+        Id: 17
+        Level: 2
   Content: "Diamond pickaxe-II : 10 point"
