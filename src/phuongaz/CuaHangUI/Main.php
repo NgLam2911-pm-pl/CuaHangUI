@@ -1,4 +1,5 @@
 <?php
+
  
 /*
 * CuaHangUI plugins are used to exchange items, items are set in config
@@ -8,7 +9,9 @@
 * Contact number: 0386473400
 * Moded by LamPocketVN
 */
+
 namespace phuongaz\CuaHangUI;
+
 use pocketmine\item\Item;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
@@ -19,17 +22,23 @@ use pocketmine\item\enchantment\Enchantment;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat as TF;
 use pocketmine\utils\Config;
+
 use jojoe77777\FormAPI\CustomForm;
 use jojoe77777\FormAPI\SimpleForm;
 use jojoe77777\FormAPI\ModalForm;
+
 use onebone\economyapi\EconomyAPI;
 use onebone\pointapi\PointAPI;
+
 use DaPigGuy\PiggyCustomEnchants\CustomEnchants\CustomEnchants;
+
 Class Main extends PluginBase implements Listener{
+
     const PREFIX = TF::BOLD. TF::YELLOW. "⚒ " . TF::GREEN."CỬA HÀNG".TF::YELLOW. "⚒";
     private $trades;
     private $setting;
 	private $piggyCE;
+
     /**
      * @return mixed
      */
@@ -37,6 +46,7 @@ Class Main extends PluginBase implements Listener{
     {
         return $this->trades->getAll();
     }
+
     /**
      * @return mixed
      */
@@ -44,14 +54,18 @@ Class Main extends PluginBase implements Listener{
     {
         return $this->setting->get($setting);
     }
+
     public function onLoad()
     {
+
     }
     public function onEnable() :void
     {
+
           @mkdir($this->getDataFolder());     
           $this->saveResource("setting.yml");
           $this->saveResource("trades.yml");             
+
         $this->setting = new Config($this->getDataFolder(). 'setting.yml', Config::YAML);
         $this->trades = new Config($this->getDataFolder(). 'trades.yml', Config::YAML);
         $this->getLogger()->info("\n §l§b•§c CuaHangUI System By Phuongaz | Modded by LamPocketVN \n");
@@ -101,7 +115,9 @@ Class Main extends PluginBase implements Listener{
           $md->setButton1($this->getSetting('Button-1'));
           $md->setButton2($this->getSetting('Button-2'));
           $md->sendToPlayer($player);
+
         });
+
         $form->setTitle(self::PREFIX);
         $form->addButton($this->getSetting('Exit-Button'));
         $all = $this->getTrades();
@@ -112,6 +128,7 @@ Class Main extends PluginBase implements Listener{
         }
         $form->sendToPlayer($player);
     }
+
     public function TradeItem($player, int $id)
     {   
       $inv = $player->getInventory();
@@ -134,9 +151,9 @@ Class Main extends PluginBase implements Listener{
 				$enchantment = $this->getTrade($id)['Enchantments'];
 				$tr = $this->getTrades();
 				if (isset($enchantment)){
-					foreach(array_keys($this->getTrades()) as $all){
-						$idec = $tr[$all]['Enchantments']['Id'];
-						$level = $tr[$all]['Enchantments']['Level'];
+					foreach(array_keys($this->getTrades()[$id]['Enchantments']) as $all){
+						$idec = $tr[$id]['Enchantments'][$all]['Id'];
+						$level = $tr[$id]['Enchantments'][$all]['Level'];
 						$this->enchantItem($new, $level, $idec);
 						
 					}
@@ -167,9 +184,9 @@ Class Main extends PluginBase implements Listener{
 				$enchantment = $this->getTrade($id)['Enchantments'];
 				$tr = $this->getTrades();
 				if (isset($enchantment)){
-					foreach(array_keys($this->getTrades()) as $all){
-						$idec = $tr[$all]['Enchantments']['Id'];
-						$level = $tr[$all]['Enchantments']['Level'];
+					foreach(array_keys($this->getTrades()[$id]['Enchantments']) as $all){
+						$idec = $tr[$id]['Enchantments'][$all]['Id'];
+						$level = $tr[$id]['Enchantments'][$all]['Level'];
 						$this->enchantItem($new, $level, $idec);
 						
 					}
@@ -181,6 +198,7 @@ Class Main extends PluginBase implements Listener{
 			$player->sendMessage(self::PREFIX. TF::RED. " Bạn không đủ tiền để mua vật phẩm này");
 			}
 		}
+
     }
 	public function enchantItem($item, int $level, $enchantment): void
 	{
@@ -200,4 +218,6 @@ Class Main extends PluginBase implements Listener{
             $item->addEnchantment(new EnchantmentInstance($ench, (int) $level));
         }
     }
+
+
 }
