@@ -1,0 +1,14 @@
+﻿name: CuaHangUI
+main: phuongaz\CuaHangUI\Main
+author: phuongaz | Moded by LamPocketVN
+api: 3.9.0
+version: 0.0.2
+depend: 
+- FormAPI
+- PointAPI
+- EconomyAPI
+- PiggyCustomEnchants
+commands:
+ cuahang:
+    description: Mở cửa hàng
+    default: true

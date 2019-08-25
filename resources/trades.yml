@@ -1,0 +1,55 @@
+#
+#
+#  Config Trade
+# Example:
+#           |"1":     
+#           |   Button: Example Trade
+#           |   support: 
+#           |       money: "true|false"
+#           |       point: "true|false"
+#           |   price:
+#           |       money: <price>
+#           |       point: <price>
+#           |   New-Item:
+#           |       Id: id:meta:count
+#           |       Name: Name Item
+#           |       Lore: Lore Item
+#           |   Enchantments:
+#           |       Id: ID enchantment or Name enchantment
+#           |       Level: Level Enchantment
+#           |       Id:
+#           |       Level
+#           |       ...
+#           |   Content: Content CuaHang
+"1":
+  Button: "Example Trade 1"
+  support:
+    money: "true"
+    point: "false"
+  price:
+    money: 10000
+    point: 0 
+  New-Item:
+    Id: "278:0:1"
+    Name: "hihihi"
+    Lore: "hihihi"
+  Enchantments:
+    Id: 17
+    Level: 2
+  Content: " Diamond Pickaxe-I : 10000$"
+"2":
+  Button: "Example Trade 2"
+  support:
+    money: "false"
+    point: "true"
+  price:
+    money: 0
+    point: 10 
+  New-Item:
+    Id: "278:0:1"
+    Name: "hihihi"
+    Lore: "hihihi"
+  Enchantments:
+    Id: 17
+    Level: 2
+  Content: "Diamond pickaxe-II : 10 point"
