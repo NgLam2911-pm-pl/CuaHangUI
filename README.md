@@ -11,7 +11,6 @@ CuaHangUI plugin for PocketMine-MP
 # 0.0.3
  * Fixed error in enchant
  * Make edit config easyly
-# 0.0.4 (comming son)
- * Muti lores support
- * Fixed some error
+# 0.0.4
+ * Fixed some error while buying item
 
