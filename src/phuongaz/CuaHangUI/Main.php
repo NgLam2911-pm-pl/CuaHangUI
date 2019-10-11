@@ -195,7 +195,7 @@ Class Main extends PluginBase implements Listener{
 				PointAPI::getInstance()->reducePoint($player, $point);
 				$inv->addItem($new);
 			}else{
-			$player->sendMessage(self::PREFIX. TF::RED. " Bạn không đủ tiền để mua vật phẩm này");
+			$player->sendMessage(self::PREFIX. TF::RED. " Bạn không đủ point để mua vật phẩm này");
 			}
 		}
 
