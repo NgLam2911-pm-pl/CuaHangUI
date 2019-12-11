@@ -30,7 +30,7 @@ use jojoe77777\FormAPI\ModalForm;
 use onebone\economyapi\EconomyAPI;
 use onebone\pointapi\PointAPI;
 
-use DaPigGuy\PiggyCustomEnchants\CustomEnchants\CustomEnchants;
+use DaPigGuy\PiggyCustomEnchants\CustomEnchantManager;
 
 Class Main extends PluginBase implements Listener{
 
@@ -205,9 +205,9 @@ Class Main extends PluginBase implements Listener{
         if(is_string($enchantment)){
             $ench = Enchantment::getEnchantmentByName((string) $enchantment);
             if($this->piggyCE !== null && $ench === null){
-                $ench = CustomEnchants::getEnchantmentByName((string) $enchantment);
+                $ench = CustomEnchantManager::getEnchantmentByName((string) $enchantment);
             }
-            if($this->piggyCE !== null && $ench instanceof CustomEnchants){
+            if($this->piggyCE !== null && $ench instanceof CustomEnchantManager){
                 $this->piggyCE->addEnchantment($item, $ench->getName(), (int) $level);
             }else{
                 $item->addEnchantment(new EnchantmentInstance($ench, (int) $level));
