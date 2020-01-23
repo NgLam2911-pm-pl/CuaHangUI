@@ -13,4 +13,9 @@ CuaHangUI plugin for PocketMine-MP
  * Make edit config easyly
 # 0.0.4
  * Fixed some error while buying item
+# 0.0.5
+ * Add support for PiggyCE 2.0
+ * Stoped this project ...
+# NEXT VERSION ???
+ * I move to CuaHangPlus :3
 
